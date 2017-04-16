@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 // using an unsigned int of 1 byte
 typedef uint8_t  BYTE;
@@ -32,7 +33,7 @@ int main(int argc, char *argv[])
            (buffer[3] & 0xf0) == 0xe0)
         {
             fclose(reimage);
-            sprintf(name,"%03i.jpg",i++);
+            sprintf(name,"%03i.jpg",imagecount++);
             reimage = fopen(name, "w");
         }
         fwrite(buffer, 1, 512, reimage);
